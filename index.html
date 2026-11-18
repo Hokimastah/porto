@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Satrio Puji Danutirto | AI Engineer</title>
+  <meta name="description" content="Portfolio of Satrio Puji Danutirto, an Artificial Intelligence Engineering student at ITS who builds vision-language models, RAG systems, continual learning research and full-stack AI apps.">
+  <meta name="author" content="Satrio Puji Danutirto">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Satrio Puji Danutirto | AI Engineer">
+  <meta property="og:description" content="Vision-language models, RAG systems, continual learning research and full-stack AI apps.">
+  <meta name="theme-color" content="#F4F6F5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121A21" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Satrio Puji Danutirto, back to top">
+        <span class="brand-mark" aria-hidden="true">SP</span>
+        <span class="brand-name">Satrio Puji Danutirto</span>
+      </a>
+
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-outline btn-small header-cv" href="assets/CV_Satrio_Puji_Danutirto.pdf" download>Download CV</a>
+        <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <button class="icon-btn menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="menu-label">Menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero wrap" id="top" aria-labelledby="hero-title">
+      <div class="hero-text">
+        <h1 id="hero-title" class="hero-name"><span>Satrio Puji</span> <span>Danutirto</span></h1>
+        <p class="hero-lede">I study Artificial Intelligence Engineering at Institut Teknologi Sepuluh Nopember (ITS). I train and evaluate vision-language models, build retrieval-augmented generation systems, and ship full-stack AI apps that keep sensitive data inside the company.</p>
+        <p class="hero-meta">Based in Surabaya, Indonesia. BNSP-certified Associate Data Scientist.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="mailto:satriopujidanutirt@gmail.com">Email me</a>
+          <a class="btn btn-outline" href="assets/CV_Satrio_Puji_Danutirto.pdf" download>Download CV</a>
+        </div>
+        <ul class="hero-links">
+          <li><a href="https://github.com/Hokimastah" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/satrio-puji-danutirto-968313286" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+
+      <figure class="viz" aria-labelledby="viz-caption">
+        <div class="viz-stage">
+          <canvas id="embedding-canvas" role="img" aria-label="Illustration: coloured dots grouped into clusters around a circle. Each cluster is one image class the model has learned, sitting next to a ring that marks its prototype."></canvas>
+        </div>
+        <div class="viz-controls">
+          <fieldset class="segmented">
+            <legend class="visually-hidden">Training mode</legend>
+            <label><input type="radio" name="viz-mode" value="sawit" checked><span>SAWIT-Net</span></label>
+            <label><input type="radio" name="viz-mode" value="finetune"><span>Fine-tune only</span></label>
+          </fieldset>
+          <button type="button" class="btn btn-small btn-solid" id="viz-next">Add 2 new classes</button>
+        </div>
+        <p class="viz-status" id="viz-status" aria-live="polite">Session 1 of 4: 4 base classes learned.</p>
+        <figcaption id="viz-caption">
+          <strong>How SAWIT-Net keeps what it learned.</strong> Each dot is an image embedding on the ArcFace hypersphere. Rings mark class prototypes, and outlined dots are the exemplars kept for replay. Add classes, then switch modes to see plain fine-tuning forget the old ones.
+          <span class="viz-note">An illustration of the idea, not benchmark output.</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- Selected work -->
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="wrap section-grid">
+        <h2 id="work-title" class="section-title">Selected work</h2>
+        <div class="section-body">
+
+          <article class="project" aria-labelledby="p1-title">
+            <header class="project-head">
+              <h3 id="p1-title">Autonomous AI Data Analytics</h3>
+              <p class="project-meta">Personal project, 2026</p>
+            </header>
+            <p class="project-lede">A local-first analytics agent. Give it a CSV, Excel or Parquet file and a goal. It profiles the data, proposes cleaning for you to approve, runs checked statistical analyses, and hands back an offline Plotly dashboard with an HTML report.</p>
+
+            <div class="project-cols">
+              <div class="project-notes">
+                <h4>Bounded on purpose</h4>
+                <p>Neither the language model nor the uploaded data can run arbitrary Python or SQL. Every analysis comes from an allowlist of 11 statistical operations, and every decision is written to an audit trail.</p>
+                <h4>You approve the cleaning</h4>
+                <p>The agent writes cleaning proposals and waits. Approved changes run in a fresh pass, the input hash has to match, and the original file is never overwritten.</p>
+                <h4>Runs you can repeat</h4>
+                <p>Step checkpoints let a stopped run resume, SQLite keeps the run history, and a watch mode re-runs the analysis when the source file changes.</p>
+              </div>
+
+              <div>
+                <h4 class="pipeline-title">How a run moves</h4>
+                <ol class="pipeline">
+                  <li><strong>Ingest</strong><span>Loads CSV, XLSX or Parquet from a sandboxed data folder.</span></li>
+                  <li><strong>Profile</strong><span>Tags every column as a measure, dimension, date, identifier or sensitive field.</span></li>
+                  <li class="is-gate"><strong>Propose cleaning</strong><span>Duplicates, missing values and stray whitespace. Nothing changes until a person approves it.</span></li>
+                  <li><strong>Plan</strong><span>Deterministic rules, or a local Ollama model choosing only from pre-validated steps.</span></li>
+                  <li><strong>Execute</strong><span>Allowlisted operations, checkpointed after each step.</span></li>
+                  <li><strong>Ground the findings</strong><span>Evidence and alerts are computed, not generated. Any LLM narrative is labelled as a draft.</span></li>
+                  <li><strong>Report</strong><span>Offline Plotly dashboard and HTML report, indexed in SQLite.</span></li>
+                </ol>
+              </div>
+            </div>
+
+            <p class="stack"><span class="stack-label">Built with</span> Python 3.11, Ollama, Plotly, Streamlit, SQLite, pytest</p>
+            <p class="project-links"><a href="https://github.com/Hokimastah/Autonomous-AI-Data-Analytics" target="_blank" rel="noopener">View the code on GitHub</a></p>
+          </article>
+
+          <article class="project" aria-labelledby="p2-title">
+            <header class="project-head">
+              <h3 id="p2-title">SAWIT-Net</h3>
+              <p class="project-meta">Continual learning research, Apr – May 2026</p>
+            </header>
+            <p class="project-subtitle">Self-Adaptive Weighted Incremental Transfer Network</p>
+            <p class="project-lede">A PyTorch toolkit for teaching an image classifier new classes without wiping out the old ones. It trains in two stages, base classes first and new classes after, and holds back catastrophic forgetting with six complementary techniques.</p>
+
+            <div class="project-cols">
+              <div>
+                <h4>Training objective</h4>
+                <p class="small">The classification loss plus four weighted terms that keep the old model’s knowledge in place.</p>
+                <ul class="loss-bars">
+                  <li class="is-base" style="--w: 1"><span class="loss-name">ArcFace classification</span><span class="loss-val">1.00</span><span class="bar" aria-hidden="true"><i></i></span></li>
+                  <li style="--w: .30"><span class="loss-name">Embedding distillation</span><span class="loss-val">0.30</span><span class="bar" aria-hidden="true"><i></i></span></li>
+                  <li style="--w: .30"><span class="loss-name">Multi-scale feature distillation</span><span class="loss-val">0.30</span><span class="bar" aria-hidden="true"><i></i></span></li>
+                  <li style="--w: .20"><span class="loss-name">Contrastive distillation</span><span class="loss-val">0.20</span><span class="bar" aria-hidden="true"><i></i></span></li>
+                  <li style="--w: .15"><span class="loss-name">Prototype preservation</span><span class="loss-val">0.15</span><span class="bar" aria-hidden="true"><i></i></span></li>
+                </ul>
+                <p class="small">A herding replay buffer adds the samples closest to each class centroid back into training.</p>
+              </div>
+
+              <div>
+                <h4>Four modes for a fair comparison</h4>
+                <div class="table-scroll">
+                  <table class="modes">
+                    <thead>
+                      <tr><th scope="col">Mode</th><th scope="col">Replay</th><th scope="col">Distillation</th><th scope="col">Prototype loss</th></tr>
+                    </thead>
+                    <tbody>
+                      <tr><th scope="row"><code>finetune</code></th><td class="no">No</td><td class="no">No</td><td class="no">No</td></tr>
+                      <tr><th scope="row"><code>replay_only</code></th><td class="yes">Yes</td><td class="no">No</td><td class="no">No</td></tr>
+                      <tr><th scope="row"><code>kd_only</code></th><td class="no">No</td><td class="yes">Yes</td><td class="no">No</td></tr>
+                      <tr class="is-full"><th scope="row"><code>full</code></th><td class="yes">Yes</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="small">Every run reports accuracy, macro F1, macro recall and a forgetting score: base-class accuracy before the new session minus accuracy after it.</p>
+              </div>
+            </div>
+
+            <pre class="code" aria-label="Install and train"><code><span class="code-comment"># install, then train base and incremental sessions in one call</span>
+pip install git+https://github.com/Hokimastah/SAWIT-Net.git
+sawit-train --dataset-type csv --base base.csv --incremental new.csv --mode full</code></pre>
+
+            <p class="stack"><span class="stack-label">Built with</span> PyTorch, ResNet-18 to ResNet-101 backbones, ArcFace, YAML configs. Ships as an installable package with a CLI and a Python API, MIT licensed.</p>
+            <p class="project-links"><a href="https://github.com/Hokimastah/SAWIT-Net" target="_blank" rel="noopener">View the code on GitHub</a></p>
+          </article>
+
+          <p class="more-work">Course projects, competition entries and smaller experiments live on <a href="https://github.com/Hokimastah" target="_blank" rel="noopener">my GitHub profile</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section class="section" id="research" aria-labelledby="research-title">
+      <div class="wrap section-grid">
+        <h2 id="research-title" class="section-title">Research</h2>
+        <div class="section-body">
+          <article class="paper" aria-labelledby="paper-title">
+            <h3 id="paper-title">Blood flow abnormality detection on transcranial Doppler ultrasound</h3>
+            <p class="project-meta">Academic research, Oct – Nov 2025. Published on IEEE Xplore.</p>
+            <p>A hybrid model for spotting abnormal blood flow in transcranial Doppler (TCD) signals. A ResNet extracts deep convolutional features and a support vector machine draws the decision boundary, pairing learned features with margin-based classification. CycleGAN reconstructs data and generates synthetic samples so the rarer class is not drowned out.</p>
+            <ol class="flow" aria-label="Method, in order">
+              <li>TCD signals</li>
+              <li>CycleGAN balancing</li>
+              <li>ResNet features</li>
+              <li>SVM classifier</li>
+            </ol>
+            <p class="project-links"><a href="https://ieeexplore.ieee.org/document/11642399" target="_blank" rel="noopener">Read the paper on IEEE Xplore</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="wrap section-grid">
+        <h2 id="experience-title" class="section-title">Experience</h2>
+        <div class="section-body">
+          <ol class="timeline">
+            <li>
+              <p class="when"><time datetime="2026-07">Jul</time> – <time datetime="2026-09">Sep 2026</time></p>
+              <div>
+                <h3>Fullstack Engineer Intern</h3>
+                <p class="org">PT Citi Asia Internasional, Jakarta</p>
+                <ul>
+                  <li>Led a team of two developers to design and build a secure internal AI web platform that keeps sensitive company data inside the internal environment.</li>
+                  <li>Built automated pipelines that generate documents, PowerPoint decks, Excel spreadsheets and images by integrating several AI APIs.</li>
+                  <li>Engineered a retrieval-augmented generation (RAG) system backed by PostgreSQL.</li>
+                  <li>Wrote the backend services in FastAPI, built the internal web interfaces in HTML, and containerised the app with Docker.</li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <p class="when"><time datetime="2026-02">Feb</time> – <time datetime="2026-07">Jul 2026</time></p>
+              <div>
+                <h3>AI Engineer</h3>
+                <p class="org">Artificial Intelligence Talent Factory (AITF), Komdigi</p>
+                <ul>
+                  <li>Trained, fine-tuned and evaluated vision-language models with the team for multimodal analysis of social media content.</li>
+                  <li>Built and benchmarked classification pipelines that detect deepfakes, slander and hate speech across social media datasets.</li>
+                </ul>
+              </div>
+            </li>
+          </ol>
+
+          <h3 class="subhead">Education</h3>
+          <div class="timeline-row">
+            <p class="when"><time datetime="2023">2023</time> – present</p>
+            <div>
+              <h4 class="edu-school">Institut Teknologi Sepuluh Nopember (ITS), Surabaya</h4>
+              <p class="org">Artificial Intelligence Engineering, GPA 3.55 / 4.00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="wrap section-grid">
+        <h2 id="skills-title" class="section-title">Skills</h2>
+        <div class="section-body">
+          <dl class="skills">
+            <div>
+              <dt>AI and data</dt>
+              <dd>Large language models, vision-language models, retrieval-augmented generation, continual learning, computer vision</dd>
+            </div>
+            <div>
+              <dt>Frameworks and libraries</dt>
+              <dd>PyTorch, TensorFlow, Scikit-learn, Transformers, FastAPI, React.js</dd>
+            </div>
+            <div>
+              <dt>Languages</dt>
+              <dd>Python, JavaScript, SQL</dd>
+            </div>
+            <div>
+              <dt>Databases and tools</dt>
+              <dd>PostgreSQL, SQLite, Docker, Git, Linux, REST APIs, VS Code</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications and leadership -->
+    <section class="section" id="certifications" aria-labelledby="cert-title">
+      <div class="wrap section-grid">
+        <h2 id="cert-title" class="section-title">Certifications</h2>
+        <div class="section-body">
+          <div class="cert-featured">
+            <div>
+              <h3>Certificate of Competence: Associate Data Scientist</h3>
+              <p class="org">Badan Nasional Sertifikasi Profesi (BNSP), through LSP TDDI. Issued Jun 2026.</p>
+            </div>
+            <a class="btn btn-outline btn-small" href="https://drive.google.com/file/d/1keOmqy1nAU8nPlw9pOYUNefyP0KkrjYM/view?usp=drive_link" target="_blank" rel="noopener">View certificate</a>
+          </div>
+
+          <h3 class="subhead">Training with Digital Talent Academy (Talenta Digital)</h3>
+          <ul class="dated-list">
+            <li><span>Operasionalisasi LLM, AITF AI Engineer track</span><time datetime="2026-04">Apr 2026</time></li>
+            <li><span>Rekayasa Aplikasi LLM Terapan, AITF AI Engineer track</span><time datetime="2026-03">Mar – Apr 2026</time></li>
+            <li><span>LLM: Dari Teori Hingga Kode, AITF AI Engineer track</span><time datetime="2026-03">Mar 2026</time></li>
+            <li><span>Mastery in Deep Learning, AITF Deep Learning track</span><time datetime="2026-03">Mar 2026</time></li>
+            <li><span>Intermediate Deep Learning, AITF Deep Learning track</span><time datetime="2026-02">Feb 2026</time></li>
+            <li><span>Fundamental of Deep Learning, AITF Deep Learning track</span><time datetime="2026-02">Feb 2026</time></li>
+            <li><span>Fundamental Programming and Intermediate Data Science</span><time datetime="2026-01">Jan – Feb 2026</time></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leadership" aria-labelledby="lead-title">
+      <div class="wrap section-grid">
+        <h2 id="lead-title" class="section-title">Leadership</h2>
+        <div class="section-body">
+          <ul class="roles">
+            <li>
+              <div class="role-head"><h3>Events Division Staff, KKN Tematik Literasi</h3><time datetime="2025-06">Jun – Jul 2025</time></div>
+              <p>Built the schedule and activity plan for the whole community-service programme and checked every event’s needs in advance so it started on time.</p>
+            </li>
+            <li>
+              <div class="role-head"><h3>Head of Liaison Officer, Malam Keakraban Koperasi Mahasiswa ITS</h3><time datetime="2024-10">Oct – Nov 2024</time></div>
+              <p>Led six liaison staff across venue rental, invitations and speaker support, and handled guests for an event of 150+ attendees.</p>
+            </li>
+            <li>
+              <div class="role-head"><h3>Intern Staff, Internal Affairs, Himpunan Mahasiswa Teknik Computer-Informatika</h3><time datetime="2024-10">Oct – Nov 2024</time></div>
+              <p>Organised internal events that brought Informatics Engineering students together.</p>
+            </li>
+            <li>
+              <div class="role-head"><h3>Expert Staff, National Programming Competition, SCHEMATICS ITS</h3><time datetime="2024-08">Aug – Oct 2024</time></div>
+              <p>Designed and prepared problems for a national competition with participants from across Indonesia.</p>
+            </li>
+            <li>
+              <div class="role-head"><h3>Head of Logistics, Apresiasi Seni UKTK ITS</h3><time datetime="2024-04">Apr – Jun 2024</time></div>
+              <p>Led a logistics team of 12 and planned the operational needs for preparing and running the event.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap section-grid">
+        <h2 id="contact-title" class="section-title">Contact</h2>
+        <div class="section-body">
+          <p class="contact-lede">Email is the quickest way to reach me.</p>
+          <a class="contact-email" href="mailto:satriopujidanutirt@gmail.com">satriopujidanutirt@gmail.com</a>
+          <ul class="contact-links">
+            <li><a href="https://www.linkedin.com/in/satrio-puji-danutirto-968313286" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://github.com/Hokimastah" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://wa.me/6282328539775" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="assets/CV_Satrio_Puji_Danutirto.pdf" download>Download CV (PDF)</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© <span id="year">2026</span> Satrio Puji Danutirto</p>
+      <p><a href="#top">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
